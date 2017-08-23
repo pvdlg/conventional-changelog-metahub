@@ -1,0 +1,120 @@
+{
+  "name": "conventional-changelog-metahub",
+  "description": "conventional-changelog preset",
+  "version": "0.0.0-development",
+  "author": "Pierre Vanduynslager",
+  "bugs": {
+    "url": "https://github.com/vanduynslagerp/conventional-changelog-metahub/issues"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@metahub/cz-conventional-commit"
+    }
+  },
+  "dependencies": {
+    "conventional-changelog-angular": "^1.4.0",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^3.1.3",
+    "@commitlint/config-angular": "^3.1.1",
+    "@metahub/cz-conventional-commit": "1.0.2",
+    "@metahub/eslint-config": "^1.6.1",
+    "ava": "^0.22.0",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-preset-env": "^1.6.0",
+    "codecov": "^2.3.0",
+    "commitizen": "^2.9.6",
+    "conventional-changelog": "^1.1.4",
+    "conventional-commits-parser": "^2.0.0",
+    "emoji-regex": "^6.5.1",
+    "eslint": "^4.5.0",
+    "eslint-config-prettier": "^2.3.0",
+    "eslint-plugin-ava": "^4.2.1",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-eslint-comments": "^1.0.3",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jasmine": "^2.8.4",
+    "eslint-plugin-json": "^1.2.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-prettier": "^2.2.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-sort-class-members": "^1.2.0",
+    "eslint-plugin-unicorn": "^2.1.2",
+    "execa": "^0.8.0",
+    "fs-extra": "^4.0.1",
+    "get-stream": "^3.0.0",
+    "husky": "^0.14.3",
+    "nyc": "^11.1.0",
+    "p-each-series": "^1.0.0",
+    "prettier": "^1.5.3",
+    "proxyquire": "^1.8.0",
+    "rimraf": "^2.6.1",
+    "semantic-release": "^8.0.0",
+    "sr-commit-analyzer": "^2.0.1",
+    "sr-release-notes-generator": "^1.1.1",
+    "stringz": "^0.2.2",
+    "tempy": "^0.1.0"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "files": [
+    "lib/*.js",
+    "preset.js",
+    "release-rules.js",
+    "types.js"
+  ],
+  "homepage": "https://github.com/vanduynslagerp/conventional-changelog-metahub#readme",
+  "keywords": [
+    "changelog",
+    "conventional-changelog",
+    "conventional-commits",
+    "publish",
+    "release",
+    "semantic-release"
+  ],
+  "license": "MIT",
+  "main": "preset.js",
+  "nyc": {
+    "include": [
+      "lib/*.js",
+      "preset.js",
+      "release-rules.js",
+      "types.js"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "release": {
+    "analyzeCommits": {
+      "path": "sr-commit-analyzer",
+      "config": "./preset.js",
+      "releaseRules": "./release-rules.js"
+    },
+    "generateNotes": {
+      "path": "sr-release-notes-generator",
+      "config": "./preset.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vanduynslagerp/conventional-changelog-metahub.git"
+  },
+  "scripts": {
+    "clean": "rimraf coverage && rimraf .nyc_output",
+    "cm": "git-cz",
+    "codecov": "codecov",
+    "commitmsg": "commitlint -e",
+    "compile": "rimraf preset.* release-rules.* types.* lib && babel src --source-maps --out-dir .",
+    "lint": "eslint src test package.json",
+    "precommit": "npm run compile && npm run lint",
+    "prepublishOnly": "npm run compile",
+    "prepush": "ava -v",
+    "pretest": "npm run clean && npm run compile && npm run lint",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "test": "nyc --all ava -v && nyc report --reporter=lcov"
+  }
+}
