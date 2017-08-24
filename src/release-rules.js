@@ -7,14 +7,14 @@ import {types} from './types';
 module.exports = [{breaking: true, release: 'major'}].concat(
   transform(
     types,
-    (commitTypes, value, type) => {
+    (releaseRules, value, type) => {
       if (value.release) {
         if (typeof value.release === 'string') {
-          commitTypes.push({type, release: value.release});
+          releaseRules.push({type, release: value.release});
         }
 
         if (value.release.release) {
-          commitTypes.push(Object.assign({type}, value.release));
+          releaseRules.push(Object.assign({type}, value.release));
         }
       }
     },
