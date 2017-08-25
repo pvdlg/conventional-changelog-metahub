@@ -1,6 +1,24 @@
 module.exports = {
   maxSubjectLength: 72,
   bodyLineLength: 100,
+  typesOrder: [
+    'feat',
+    'fix',
+    'perf',
+    'build',
+    'refactor',
+    'docs',
+    'test',
+    'ci',
+    'chore',
+    'style',
+    'revert',
+    'initial',
+    'dependencies',
+    'peerDependencies',
+    'devDependencies',
+    'metadata',
+  ],
   types: {
     feat: {
       description: 'A new feature',

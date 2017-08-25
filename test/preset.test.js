@@ -6,8 +6,7 @@ const COMMIT_HASH_LENGTH = 7;
 
 test.serial('Include only commits with "changelog" set to "true"', async t => {
   const log = await changelog(['fix(scope1): First fix', 'feat(scope2): Second feature'], {
-    feat: {title: 'Feature title', changelog: true},
-    fix: {title: 'Fix title'},
+    types: {feat: {title: 'Feature title', changelog: true}, fix: {title: 'Fix title'}},
   });
 
   t.regex(log, /### Feature title/);
@@ -23,7 +22,7 @@ test.serial('Include commits with breaking changes even if "changelog" is not se
       'fix(scope1): First fix \n\n BREAKING CHANGE: afgshytrsd',
       'feat(scope2): Second feature \n\n BREAKING CHANGE: afgshytrsd',
     ],
-    {feat: {title: 'Feature title', changelog: false}, fix: {title: 'Fix title'}}
+    {types: {feat: {title: 'Feature title', changelog: false}, fix: {title: 'Fix title'}}}
   );
 
   t.regex(log, /### Breaking changes/);
@@ -34,7 +33,7 @@ test.serial('Include commits with breaking changes even if "changelog" is not se
 });
 
 test.serial('Do not include "scope" if set to "*"', async t => {
-  const log = await changelog(['fix(*): First fix'], {fix: {title: 'Fix title', changelog: true}});
+  const log = await changelog(['fix(*): First fix'], {types: {fix: {title: 'Fix title', changelog: true}}});
 
   t.regex(log, /### Fix title/);
   t.regex(log, /\* First fix/);
@@ -43,7 +42,7 @@ test.serial('Do not include "scope" if set to "*"', async t => {
 test.serial('Create commit link', async t => {
   const log = await changelog(
     ['fix: First fix'],
-    {fix: {title: 'Fix title', changelog: true}},
+    {types: {fix: {title: 'Fix title', changelog: true}}},
     {pkg: {path: path.join(__dirname, '/fixtures/_package.json')}}
   );
   const [, hash, url] = /\(\[(.*?)\]\((.*?)\)\)/.exec(log);
@@ -55,7 +54,7 @@ test.serial('Create commit link', async t => {
 test.serial('Create reference link', async t => {
   const log = await changelog(
     ['fix: First fix\n\ncloses #123, fix #456'],
-    {fix: {title: 'Fix title', changelog: true}},
+    {types: {fix: {title: 'Fix title', changelog: true}}},
     {pkg: {path: path.join(__dirname, '/fixtures/_package.json')}}
   );
 
@@ -68,7 +67,7 @@ test.serial('Create reference link', async t => {
 test.serial('Create reference link if referenced in subject', async t => {
   const log = await changelog(
     ['fix: First fix closes #123 fix #456'],
-    {fix: {title: 'Fix title', changelog: true}},
+    {types: {fix: {title: 'Fix title', changelog: true}}},
     {pkg: {path: path.join(__dirname, '/fixtures/_package.json')}}
   );
 
@@ -81,7 +80,7 @@ test.serial('Create reference link if referenced in subject', async t => {
 test.serial('Do not duplicate reference link', async t => {
   const log = await changelog(
     ['fix: First fix closes #123 fix #456\n\nfix closes #123'],
-    {fix: {title: 'Fix title', changelog: true}},
+    {types: {fix: {title: 'Fix title', changelog: true}}},
     {pkg: {path: path.join(__dirname, '/fixtures/_package.json')}}
   );
 
@@ -94,7 +93,7 @@ test.serial('Do not duplicate reference link', async t => {
 test.serial('Create mention link', async t => {
   const log = await changelog(
     ['fix: Subject, @username @username2'],
-    {fix: {title: 'Fix title', changelog: true}},
+    {types: {fix: {title: 'Fix title', changelog: true}}},
     {pkg: {path: path.join(__dirname, '/fixtures/_package.json')}}
   );
 
@@ -102,4 +101,19 @@ test.serial('Create mention link', async t => {
     log,
     /\* Subject, \[@username\]\(https:\/\/github.com\/username\) \[@username2\]\(https:\/\/github.com\/username2\)/
   );
+});
+
+test.serial('Print commit group in order', async t => {
+  const log = await changelog(
+    ['docs(scope1): Some doc update', 'fix(scope1): First fix', 'feat(scope2): Second feature'],
+    {
+      types: {
+        feat: {title: 'Feature title', changelog: true},
+        fix: {title: 'Fix title', changelog: true},
+        docs: {title: 'Documentation title', changelog: true},
+      },
+    }
+  );
+
+  t.regex(log, /[\S\s]*### Feature title[\S\s]*### Fix title[\S\s]*### Documentation title/);
 });

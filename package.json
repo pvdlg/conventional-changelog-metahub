@@ -64,7 +64,8 @@
     "lib/*.js",
     "preset.js",
     "release-rules.js",
-    "types.js"
+    "types.js",
+    "aliases.js"
   ],
   "homepage": "https://github.com/vanduynslagerp/conventional-changelog-metahub#readme",
   "keywords": [
@@ -82,7 +83,8 @@
       "lib/*.js",
       "preset.js",
       "release-rules.js",
-      "types.js"
+      "types.js",
+      "aliases.js"
     ]
   },
   "publishConfig": {
@@ -108,7 +110,7 @@
     "cm": "git-cz",
     "codecov": "codecov",
     "commitmsg": "commitlint -e",
-    "compile": "rimraf preset.* release-rules.* types.* lib && babel src --source-maps --out-dir .",
+    "compile": "rimraf preset.* release-rules.* types.* aliases.* lib && babel src --source-maps --out-dir .",
     "lint": "eslint src test package.json",
     "precommit": "npm run compile && npm run lint",
     "prepublishOnly": "npm run compile",
