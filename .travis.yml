@@ -20,6 +20,8 @@ before_script:
   - greenkeeper-lockfile-update
 script:
   - npm run test
+after_script:
+  - greenkeeper-lockfile-upload
 env:
   - BUILD_LEADER_ID=4
 jobs:

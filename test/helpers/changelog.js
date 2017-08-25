@@ -29,7 +29,11 @@ export default async function changelog(messages, types, config = {}) {
       merge(
         {
           config: proxyquire('../../preset', {
-            './lib/commit-transform': proxyquire('../../lib/commit-transform', {'../types': {types}}),
+            './lib/commit-transform': proxyquire('../../lib/commit-transform', {'../types': types}),
+            './lib/commit-groups-compare': proxyquire('../../lib/commit-groups-compare', {
+              '../types': types,
+              '../aliases': proxyquire('../../aliases', types),
+            }),
           }),
         },
         config
