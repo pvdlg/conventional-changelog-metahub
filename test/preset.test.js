@@ -16,6 +16,18 @@ test.serial('Include only commits with "changelog" set to "true"', async t => {
   t.notRegex(log, /First fix/);
 });
 
+test.serial('Include type emoji in group titles', async t => {
+  const log = await changelog(['fix(scope1): First fix', 'feat(scope2): Second feature'], {
+    types: {
+      feat: {title: 'Feature title', changelog: true, emoji: '✨'},
+      fix: {title: 'Fix title', changelog: true, emoji: '🐛'},
+    },
+  });
+
+  t.regex(log, /### ✨ Feature title/);
+  t.regex(log, /### 🐛 Fix title/);
+});
+
 test.serial('Include commits with breaking changes even if "changelog" is not set to "true"', async t => {
   const log = await changelog(
     [
