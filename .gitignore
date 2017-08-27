@@ -127,6 +127,9 @@ $RECYCLE.BIN/
 
 # End of https://www.gitignore.io/api/macos,windows,linux,node
 
+yarn.lock
+package-lock.json
+
 /preset.*
 /release-rules.*
 /lib
