@@ -17,7 +17,7 @@ module.exports = (commit, context) => {
   }
 
   if (types[commit.type] && (types[commit.type].changelog || (commit.notes && commit.notes.length > 0))) {
-    commit.type = `${types[commit.type].emoji ? `${types[commit.type].emoji} ` : ''}${types[commit.type].title}`;
+    commit.groupType = `${types[commit.type].emoji ? `${types[commit.type].emoji} ` : ''}${types[commit.type].title}`;
   } else {
     return null;
   }

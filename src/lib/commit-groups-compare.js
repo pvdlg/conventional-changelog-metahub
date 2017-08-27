@@ -1,6 +1,4 @@
-import {findKey, pick} from 'lodash';
-import {types, typesOrder} from '../types';
-import aliases from '../aliases';
+import {typesOrder} from '../types';
 
 /**
  * Comparison function to sort Commit Groups.
@@ -10,13 +8,13 @@ import aliases from '../aliases';
  * @return {integer} -1 if `group1` should be displayed before `group2`, 1 for the opposite and 0 if they are equals.
  */
 module.exports = (group1, group2) => {
-  const type1 = typesOrder.indexOf(findKey(types, pick(group1, 'title')) || findKey(aliases, pick(group1, 'title')));
-  const type2 = typesOrder.indexOf(findKey(types, pick(group2, 'title')) || findKey(aliases, pick(group2, 'title')));
+  const idx1 = typesOrder.indexOf(group1.commits[0].type);
+  const idx2 = typesOrder.indexOf(group2.commits[0].type);
 
-  if (type1 !== -1 && type2 === -1) return -1;
-  if (type1 === -1 && type2 !== -1) return 1;
-  if (type1 < type2) return -1;
-  if (type1 > type2) return 1;
+  if (idx1 !== -1 && idx2 === -1) return -1;
+  if (idx1 === -1 && idx2 !== -1) return 1;
+  if (idx1 < idx2) return -1;
+  if (idx1 > idx2) return 1;
   if (group1.title < group2.title) return -1;
   if (group1.title > group2.title) return 1;
   return 0;

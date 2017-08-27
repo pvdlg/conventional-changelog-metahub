@@ -117,15 +117,19 @@ test.serial('Create mention link', async t => {
 
 test.serial('Print commit group in order', async t => {
   const log = await changelog(
-    ['docs(scope1): Some doc update', 'fix(scope1): First fix', 'feat(scope2): Second feature'],
+    ['docs(scope1): Some doc update', 'fix(scope1): First fix', 'feat(scope2): Second feature', 'chore: some chore'],
     {
       types: {
-        feat: {title: 'Feature title', changelog: true},
-        fix: {title: 'Fix title', changelog: true},
-        docs: {title: 'Documentation title', changelog: true},
+        chore: {title: 'Chores', changelog: true, emoji: '♻️'},
+        fix: {title: 'Fix title', changelog: true, emoji: '🐛'},
+        docs: {title: 'Documentation title', changelog: true, emoji: '📚'},
+        feat: {title: 'Feature title', changelog: true, emoji: '✨'},
       },
     }
   );
 
-  t.regex(log, /[\S\s]*### Feature title[\S\s]*### Fix title[\S\s]*### Documentation title/);
+  t.regex(
+    log,
+    /[\S\s]*### ✨ Feature title[\S\s]*### 🐛 Fix title[\S\s]*### 📚 Documentation title[\S\s]*### ♻️ Chores/
+  );
 });
