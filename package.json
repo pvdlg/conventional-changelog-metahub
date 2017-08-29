@@ -79,13 +79,23 @@
   "license": "MIT",
   "main": "preset.js",
   "nyc": {
+    "check-coverage": true,
+    "lines": 100,
+    "statements": 100,
+    "functions": 100,
+    "branches": 100,
     "include": [
       "lib/*.js",
       "preset.js",
       "release-rules.js",
       "types.js",
       "aliases.js"
-    ]
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "all": true
   },
   "publishConfig": {
     "access": "public"
@@ -111,6 +121,7 @@
     "codecov": "codecov",
     "commitmsg": "commitlint -e",
     "compile": "rimraf preset.* release-rules.* types.* aliases.* lib && babel src --source-maps --out-dir .",
+    "coverage": "nyc check-coverage",
     "lint": "eslint src test package.json",
     "postcheckout": "yarn install || (rimraf && npm install)",
     "precommit": "npm run compile && npm run lint",
@@ -118,6 +129,6 @@
     "prepush": "ava -v",
     "pretest": "npm run clean && npm run compile && npm run lint",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "test": "nyc --all ava -v && nyc report --reporter=lcov"
+    "test": "nyc ava -v"
   }
 }
