@@ -1,10 +1,4 @@
 module.exports = {
-  extends: [
-    '@metahub/eslint-config/es6-config',
-    '@metahub/eslint-config/node-config',
-    '@metahub/eslint-config/promise-config',
-    '@metahub/eslint-config/ava-config',
-    '@metahub/eslint-config/prettier-config',
-  ],
+  extends: ['pretty/es6', 'pretty/node', 'pretty/promise', 'pretty/ava', 'pretty/prettier'],
   parserOptions: {sourceType: 'module'},
 };
