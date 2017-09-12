@@ -21,7 +21,7 @@
     "@metahub/cz-conventional-commit": "^2.0.0",
     "ava": "^0.22.0",
     "babel-cli": "^6.26.0",
-    "babel-eslint": "^7.2.3",
+    "babel-eslint": "^8.0.0",
     "babel-preset-env": "^1.6.0",
     "codecov": "^2.3.0",
     "commitizen": "^2.9.6",
