@@ -9,7 +9,7 @@ import {merge} from 'lodash';
 
 /**
  * Create a temporary git repository with commits.
- *  
+ *
  * @method changelog
  * @param {Array<string>} messages the commit message (1 commit per message).
  * @param {Array} types the commit types configuration.
