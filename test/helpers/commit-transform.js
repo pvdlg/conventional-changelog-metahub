@@ -2,7 +2,7 @@ import proxyquire from 'proxyquire';
 
 /**
  * Call the `commit-transform` function, replacing `types` with parameter.
- * 
+ *
  * @method commitTransform
  * @param {Object} commit commit parsed with `conventional-changelog-parser`.
  * @param {Object} types commit types to test with.
