@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^5.0.1",
-    "@commitlint/config-angular": "^4.3.0",
+    "@commitlint/config-angular": "^5.1.1",
     "@metahub/cz-conventional-commit": "^2.0.0",
     "ava": "^0.24.0",
     "babel-cli": "^6.26.0",
