@@ -7,22 +7,18 @@ branches:
   only:
     - master
     - /^greenkeeper.*$/
-git:
-  depth: 999
 before_install:
   - if [[ `npm -v` < 5* ]]; then npm install -g npm@5; fi
 install:
   - travis_retry npm install
 script:
   - npm run test
-env:
-  - BUILD_LEADER_ID=4
 jobs:
   include:
     - stage: release
-      node_js: 8
+      node_js: node
       script: npm run test
-      after_success: 
-        - if [ -n "${CODECOV_TOKEN:-}" ]; then npm run codecov; fi
+      after_success:
+        - npm run codecov
         - npm run coverage
         - npm run semantic-release

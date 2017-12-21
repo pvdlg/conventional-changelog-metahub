@@ -16,8 +16,6 @@
     "lodash": "^4.17.4"
   },
   "devDependencies": {
-    "@commitlint/cli": "^5.0.1",
-    "@commitlint/config-angular": "^5.1.1",
     "@metahub/cz-conventional-commit": "^2.0.0",
     "ava": "^0.24.0",
     "babel-cli": "^6.26.0",
@@ -45,15 +43,12 @@
     "execa": "^0.8.0",
     "fs-extra": "^5.0.0",
     "get-stream": "^3.0.0",
-    "husky": "^0.14.3",
     "nyc": "^11.1.0",
     "p-each-series": "^1.0.0",
     "prettier": "^1.7.2",
     "proxyquire": "^1.8.0",
     "rimraf": "^2.6.1",
-    "semantic-release": "^8.0.0",
-    "sr-commit-analyzer": "^2.0.1",
-    "sr-release-notes-generator": "^1.1.1",
+    "semantic-release": "^11.0.2",
     "stringz": "^0.4.0",
     "tempy": "^0.2.0"
   },
@@ -102,12 +97,10 @@
   },
   "release": {
     "analyzeCommits": {
-      "path": "sr-commit-analyzer",
       "config": "./preset.js",
       "releaseRules": "./release-rules.js"
     },
     "generateNotes": {
-      "path": "sr-release-notes-generator",
       "config": "./preset.js"
     }
   },
@@ -119,16 +112,12 @@
     "clean": "rimraf coverage && rimraf .nyc_output",
     "cm": "git-cz",
     "codecov": "codecov",
-    "commitmsg": "commitlint -e",
     "compile": "rimraf preset.* release-rules.* types.* aliases.* lib && babel src --source-maps --out-dir .",
     "coverage": "nyc check-coverage",
     "lint": "eslint src test package.json",
-    "postcheckout": "yarn install || (rimraf && npm install)",
-    "precommit": "npm run compile && npm run lint",
     "prepublishOnly": "npm run compile",
-    "prepush": "ava -v",
     "pretest": "npm run clean && npm run compile && npm run lint",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "semantic-release": "semantic-release pre",
     "test": "nyc ava -v"
   }
 }
