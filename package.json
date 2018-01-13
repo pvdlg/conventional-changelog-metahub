@@ -81,6 +81,12 @@
     ],
     "all": true
   },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "bracketSpacing": false,
+    "trailingComma": "es5"
+  },
   "publishConfig": {
     "access": "public"
   },
