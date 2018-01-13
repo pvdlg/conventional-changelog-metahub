@@ -48,7 +48,7 @@
     "prettier": "^1.7.2",
     "proxyquire": "^1.8.0",
     "rimraf": "^2.6.1",
-    "semantic-release": "^11.0.2",
+    "semantic-release": "^12.2.2",
     "stringz": "^0.4.0",
     "tempy": "^0.2.0"
   },
