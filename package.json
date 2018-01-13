@@ -37,7 +37,7 @@
     "get-stream": "^3.0.0",
     "nyc": "^11.1.0",
     "p-each-series": "^1.0.0",
-    "prettier": "^1.7.2",
+    "prettier": "~1.10.0",
     "proxyquire": "^1.8.0",
     "rimraf": "^2.6.1",
     "semantic-release": "^12.0.0",
