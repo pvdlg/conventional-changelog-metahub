@@ -1,5 +1,6 @@
 import {merge} from 'lodash';
 import conventionalChangelogAngular from 'conventional-changelog-angular';
+
 const commitGroupsSort = require('./lib/commit-groups-compare');
 const transform = require('./lib/commit-transform');
 
