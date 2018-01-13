@@ -6,23 +6,16 @@
   "bugs": {
     "url": "https://github.com/vanduynslagerp/conventional-changelog-metahub/issues"
   },
-  "config": {
-    "commitizen": {
-      "path": "@metahub/cz-conventional-commit"
-    }
-  },
   "dependencies": {
     "conventional-changelog-angular": "^1.4.0",
     "lodash": "^4.17.4"
   },
   "devDependencies": {
-    "@metahub/cz-conventional-commit": "^2.0.0",
     "ava": "^0.24.0",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.0.0",
     "babel-preset-env": "^1.6.0",
     "codecov": "^3.0.0",
-    "commitizen": "^2.9.6",
     "conventional-changelog": "^1.1.4",
     "conventional-commits-parser": "^2.0.0",
     "emoji-regex": "^6.5.1",
@@ -110,7 +103,6 @@
   },
   "scripts": {
     "clean": "rimraf coverage && rimraf .nyc_output",
-    "cm": "git-cz",
     "codecov": "codecov",
     "compile": "rimraf preset.* release-rules.* types.* aliases.* lib && babel src --source-maps --out-dir .",
     "coverage": "nyc check-coverage",
