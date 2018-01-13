@@ -3,18 +3,14 @@
 [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog) preset built from a list of [conventional commit types](src/types.js) (similar to [conventional-commit-types](https://github.com/commitizen/conventional-commit-types)).
 Also provides [release rules](https://github.com/vanduynslagerp/sr-commit-analyzer#release-rules) configuration for [sr-commit-analyzer](https://github.com/vanduynslagerp/sr-commit-analyzer).
 
-[![npm](https://img.shields.io/npm/v/conventional-changelog-metahub.svg)](https://www.npmjs.com/package/conventional-changelog-metahub)
-[![npm](https://img.shields.io/npm/dt/conventional-changelog-metahub.svg)](https://www.npmjs.com/package/conventional-changelog-metahub)
-[![Greenkeeper badge](https://badges.greenkeeper.io/vanduynslagerp/conventional-changelog-metahub.svg)](https://greenkeeper.io/)
-[![license](https://img.shields.io/github/license/vanduynslagerp/conventional-changelog-metahub.svg)](https://github.com/vanduynslagerp/conventional-changelog-metahub/blob/master/LICENSE)
-
 [![Travis](https://img.shields.io/travis/vanduynslagerp/conventional-changelog-metahub.svg)](https://travis-ci.org/vanduynslagerp/conventional-changelog-metahub)
 [![Codecov](https://img.shields.io/codecov/c/github/vanduynslagerp/conventional-changelog-metahub.svg)](https://codecov.io/gh/vanduynslagerp/conventional-changelog-metahub)
+[![Greenkeeper badge](https://badges.greenkeeper.io/vanduynslagerp/conventional-changelog-metahub.svg)](https://greenkeeper.io/)
 
 Commit types originally from:
-*   [Angular Git Commit Message Conventions](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#type)
-*   [commitizen/cz-conventional-changelog](https://github.com/commitizen/cz-conventional-changelog)
-*   [conventional-commit-types](https://github.com/commitizen/conventional-commit-types)
+- [Angular Git Commit Message Conventions](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#type)
+- [commitizen/cz-conventional-changelog](https://github.com/commitizen/cz-conventional-changelog)
+- [conventional-commit-types](https://github.com/commitizen/conventional-commit-types)
 
 ## Install
 ```bash
@@ -71,23 +67,23 @@ conventionalChangelog({config}).pipe(process.stdout);
 
 ## Commit types
 
-| Commit Type | Title                    | Description                                                                                                 | Emoji  | Release                        | Include in changelog |
-|:-----------:| ------------------------ | ----------------------------------------------------------------------------------------------------------- |:------:| ------------------------------ |:--------------------:|
-| `feat`      | Features                 | A new feature                                                                                               | ✨     | `minor`                        | `true`               |
-| `fix`       | Bug Fixes                | A bug Fix                                                                                                   | 🐛     | `patch`                        | `true`               |
-| `docs`      | Documentation            | Documentation only changes                                                                                  | 📚     | `patch` if `scope` is `readme` | `true`               |
-| `style`     | Styles                   | Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)      | 💎     | -                              | `true`               |
-| `refactor`  | Code Refactoring         | A code change that neither fixes a bug nor adds a feature                                                   | 📦     | -                              | `true`               |
-| `perf`      | Performance Improvements | A code change that improves performance                                                                     | 🚀     | `patch`                        | `true`               |
-| `test`      | Tests                    | Adding missing tests or correcting existing tests                                                           | 🚨     | -                              | `true`               |
-| `build`     | Builds                   | Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)         | 🛠     | `patch`                        | `true`               |
-| `ci`        | Continuous Integrations  | Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs) | ⚙️     | -                              | `true`               |
-| `chore`     | Chores                   | Other changes that don't modify src or test files                                                           | ♻️     | -                              | `true`               |
-| `revert`    | Reverts                  | Reverts a previous commit                                                                                   | 🗑     | -                              | `true`               |
+| Commit Type | Title                    | Description                                                                                                 | Emoji | Release                        | Include in changelog |
+|:-----------:|--------------------------|-------------------------------------------------------------------------------------------------------------|:-----:|--------------------------------|:--------------------:|
+|   `feat`    | Features                 | A new feature                                                                                               |   ✨   | `minor`                        |        `true`        |
+|    `fix`    | Bug Fixes                | A bug Fix                                                                                                   |  🐛   | `patch`                        |        `true`        |
+|   `docs`    | Documentation            | Documentation only changes                                                                                  |  📚   | `patch` if `scope` is `readme` |        `true`        |
+|   `style`   | Styles                   | Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)      |  💎   | -                              |        `true`        |
+| `refactor`  | Code Refactoring         | A code change that neither fixes a bug nor adds a feature                                                   |  📦   | -                              |        `true`        |
+|   `perf`    | Performance Improvements | A code change that improves performance                                                                     |  🚀   | `patch`                        |        `true`        |
+|   `test`    | Tests                    | Adding missing tests or correcting existing tests                                                           |  🚨   | -                              |        `true`        |
+|   `build`   | Builds                   | Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)         |  🛠   | `patch`                        |        `true`        |
+|    `ci`     | Continuous Integrations  | Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs) |  ⚙️   | -                              |        `true`        |
+|   `chore`   | Chores                   | Other changes that don't modify src or test files                                                           |  ♻️   | -                              |        `true`        |
+|  `revert`   | Reverts                  | Reverts a previous commit                                                                                   |  🗑   | -                              |        `true`        |
 
 ## Commit aliases
 
-Aliases allow to have additionnal commit types (in a tool like [commitizen](https://github.com/commitizen/cz-cli) for example) that can be formatted to follow [AngularJS Commit Message Conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit).
+Aliases allow to have additional commit types (in a tool like [commitizen](https://github.com/commitizen/cz-cli) for example) that can be formatted to follow [AngularJS Commit Message Conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit).
 
 For example the [commitizen](https://github.com/commitizen/cz-cli) CLI can present the choice `initial` and the final commit message will be 'feat: Initial commit 🎉'
 
@@ -100,7 +96,5 @@ For example the [commitizen](https://github.com/commitizen/cz-cli) CLI can prese
 | `metadata`         | `fix`   | Metadata          | Update metadata (package.json)  | 📦     |
 
 ## Related
-*   [sr-commit-analyzer](https://github.com/vanduynslagerp/sr-commit-analyzer)
-*   [sr-release-notes-generator](https://github.com/vanduynslagerp/sr-release-notes-generator)
-*   [cz-conventional-commit](https://github.com/vanduynslagerp/cz-conventional-commit)
-*   [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog)
+- [cz-conventional-commit](https://github.com/vanduynslagerp/cz-conventional-commit)
+- [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog)
