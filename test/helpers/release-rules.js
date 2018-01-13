@@ -8,5 +8,5 @@ import proxyquire from 'proxyquire';
  * @return {Array} the `release-rules` array for the `types` in parameter.
  */
 export default function releaseRules(types = {}) {
-	return proxyquire('../../release-rules', {'./types': {types}});
+  return proxyquire('../../release-rules', {'./types': {types}});
 }

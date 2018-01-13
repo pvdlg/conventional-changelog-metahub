@@ -15,17 +15,17 @@ import {types, typesOrder} from '../types';
  * @param {string} type type to verify
  */
 function hasProperty(t, object, prop, type) {
-	for (const obj in object) {
-		if (Object.prototype.hasOwnProperty.call(object, obj)) {
-			t.true(Object.prototype.hasOwnProperty.call(object[obj], prop));
-			if (type === 'boolean' || type === 'string' || type === 'number' || type === 'function') {
-				t.true(typeof object[obj][prop] === type);
-			} else if (type === 'emoji') {
-				t.true(emojiRegex({exact: true}).test(object[obj][prop]));
-				t.is(length(object[obj][prop]), 1);
-			}
-		}
-	}
+  for (const obj in object) {
+    if (Object.prototype.hasOwnProperty.call(object, obj)) {
+      t.true(Object.prototype.hasOwnProperty.call(object[obj], prop));
+      if (type === 'boolean' || type === 'string' || type === 'number' || type === 'function') {
+        t.true(typeof object[obj][prop] === type);
+      } else if (type === 'emoji') {
+        t.true(emojiRegex({exact: true}).test(object[obj][prop]));
+        t.is(length(object[obj][prop]), 1);
+      }
+    }
+  }
 }
 
 /**
@@ -36,20 +36,20 @@ function hasProperty(t, object, prop, type) {
  * @param {string} object object to verify
  */
 function hasValidRelease(t, object) {
-	for (const obj in object) {
-		if (Object.prototype.hasOwnProperty.call(object, obj)) {
-			t.true(Object.prototype.hasOwnProperty.call(object[obj], 'release'));
-			t.true(
+  for (const obj in object) {
+    if (Object.prototype.hasOwnProperty.call(object, obj)) {
+      t.true(Object.prototype.hasOwnProperty.call(object[obj], 'release'));
+      t.true(
         ['major', 'minor', 'patch', false].indexOf(object[obj].release) !== -1 ||
           (Object.prototype.hasOwnProperty.call(object[obj].release, 'release') &&
             ['major', 'minor', 'patch', false].indexOf(object[obj].release.release) !== -1)
       );
-		}
-	}
+    }
+  }
 }
 
 test('../types has the property types', t => {
-	t.truthy(types);
+  t.truthy(types);
 });
 
 test('Each type has the property title', hasProperty, types, 'title', 'string');
@@ -59,13 +59,13 @@ test('Each type has the property changelog', hasProperty, types, 'changelog', 'b
 test('Each type has the property release', hasValidRelease, types);
 
 test('../types has the property typesOrder', t => {
-	t.truthy(typesOrder);
+  t.truthy(typesOrder);
 });
 
 test('Each type exists in typesOrder', t => {
-	for (const type in types) {
-		if (Object.prototype.hasOwnProperty.call(types, type)) {
-			t.true(typesOrder.indexOf(type) !== -1);
-		}
-	}
+  for (const type in types) {
+    if (Object.prototype.hasOwnProperty.call(types, type)) {
+      t.true(typesOrder.indexOf(type) !== -1);
+    }
+  }
 });
