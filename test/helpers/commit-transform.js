@@ -10,5 +10,5 @@ import proxyquire from 'proxyquire';
  * @return {Object} the commit transformed with the `types` in parameter.
  */
 export default function commitTransform(commit, types, context = {}) {
-	return proxyquire('../../lib/commit-transform', {'../types': {types}})(commit, context);
+  return proxyquire('../../lib/commit-transform', {'../types': {types}})(commit, context);
 }

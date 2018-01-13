@@ -111,5 +111,10 @@
     "pretest": "npm run compile && npm run lint",
     "semantic-release": "semantic-release",
     "test": "nyc ava -v"
+  },
+  "xo": {
+    "extends": [
+      "plugin:prettier/recommended"
+    ]
   }
 }
