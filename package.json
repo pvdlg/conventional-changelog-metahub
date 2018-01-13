@@ -67,11 +67,6 @@
   "license": "MIT",
   "main": "preset.js",
   "nyc": {
-    "check-coverage": true,
-    "lines": 100,
-    "statements": 100,
-    "functions": 100,
-    "branches": 100,
     "include": [
       "lib/*.js",
       "preset.js",
@@ -80,7 +75,8 @@
       "aliases.js"
     ],
     "reporter": [
-      "lcov",
+      "html",
+      "json",
       "text"
     ],
     "all": true
@@ -103,9 +99,8 @@
   },
   "scripts": {
     "clean": "rimraf coverage && rimraf .nyc_output",
-    "codecov": "codecov",
+    "codecov": "codecov -f coverage/coverage-final.json",
     "compile": "rimraf preset.* release-rules.* types.* aliases.* lib && babel src --source-maps --out-dir .",
-    "coverage": "nyc check-coverage",
     "lint": "eslint src test package.json",
     "prepublishOnly": "npm run compile",
     "pretest": "npm run clean && npm run compile && npm run lint",
