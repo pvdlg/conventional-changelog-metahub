@@ -16,7 +16,7 @@
     ]
   },
   "bugs": {
-    "url": "https://github.com/vanduynslagerp/conventional-changelog-metahub/issues"
+    "url": "https://github.com/pvdlg/conventional-changelog-metahub/issues"
   },
   "dependencies": {
     "conventional-changelog-angular": "^1.4.0",
@@ -55,7 +55,7 @@
     "types.js",
     "aliases.js"
   ],
-  "homepage": "https://github.com/vanduynslagerp/conventional-changelog-metahub#readme",
+  "homepage": "https://github.com/pvdlg/conventional-changelog-metahub#readme",
   "keywords": [
     "changelog",
     "conventional-changelog",
@@ -95,7 +95,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vanduynslagerp/conventional-changelog-metahub.git"
+    "url": "https://github.com/pvdlg/conventional-changelog-metahub.git"
   },
   "scripts": {
     "codecov": "codecov -f coverage/coverage-final.json",

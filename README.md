@@ -1,11 +1,11 @@
 # **conventional-changelog-metahub**
 
 [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog) preset built from a list of [conventional commit types](src/types.js) (similar to [conventional-commit-types](https://github.com/commitizen/conventional-commit-types)).
-Also provides [release rules](https://github.com/vanduynslagerp/sr-commit-analyzer#release-rules) configuration for [sr-commit-analyzer](https://github.com/vanduynslagerp/sr-commit-analyzer).
+Also provides [release rules](https://github.com/pvdlg/sr-commit-analyzer#release-rules) configuration for [sr-commit-analyzer](https://github.com/pvdlg/sr-commit-analyzer).
 
-[![Travis](https://img.shields.io/travis/vanduynslagerp/conventional-changelog-metahub.svg)](https://travis-ci.org/vanduynslagerp/conventional-changelog-metahub)
-[![Codecov](https://img.shields.io/codecov/c/github/vanduynslagerp/conventional-changelog-metahub.svg)](https://codecov.io/gh/vanduynslagerp/conventional-changelog-metahub)
-[![Greenkeeper badge](https://badges.greenkeeper.io/vanduynslagerp/conventional-changelog-metahub.svg)](https://greenkeeper.io/)
+[![Travis](https://img.shields.io/travis/pvdlg/conventional-changelog-metahub.svg)](https://travis-ci.org/pvdlg/conventional-changelog-metahub)
+[![Codecov](https://img.shields.io/codecov/c/github/pvdlg/conventional-changelog-metahub.svg)](https://codecov.io/gh/pvdlg/conventional-changelog-metahub)
+[![Greenkeeper badge](https://badges.greenkeeper.io/pvdlg/conventional-changelog-metahub.svg)](https://greenkeeper.io/)
 
 Commit types originally from:
 - [Angular Git Commit Message Conventions](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#type)
@@ -96,5 +96,5 @@ For example the [commitizen](https://github.com/commitizen/cz-cli) CLI can prese
 | `metadata`         | `fix`   | Metadata          | Update metadata (package.json)  | 📦     |
 
 ## Related
-- [cz-conventional-commit](https://github.com/vanduynslagerp/cz-conventional-commit)
+- [cz-conventional-commit](https://github.com/pvdlg/cz-conventional-commit)
 - [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog)
