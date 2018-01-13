@@ -41,7 +41,7 @@
     "prettier": "^1.7.2",
     "proxyquire": "^1.8.0",
     "rimraf": "^2.6.1",
-    "semantic-release": "^11.0.2",
+    "semantic-release": "^12.0.0",
     "stringz": "^0.4.0",
     "tempy": "^0.2.0"
   },
@@ -109,7 +109,7 @@
     "lint": "eslint src test package.json",
     "prepublishOnly": "npm run compile",
     "pretest": "npm run clean && npm run compile && npm run lint",
-    "semantic-release": "semantic-release pre",
+    "semantic-release": "semantic-release",
     "test": "nyc ava -v"
   }
 }
