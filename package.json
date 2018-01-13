@@ -3,6 +3,18 @@
   "description": "conventional-changelog preset",
   "version": "0.0.0-development",
   "author": "Pierre Vanduynslager",
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "4"
+          }
+        }
+      ]
+    ]
+  },
   "bugs": {
     "url": "https://github.com/vanduynslagerp/conventional-changelog-metahub/issues"
   },
