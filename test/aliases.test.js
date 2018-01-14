@@ -1,8 +1,8 @@
 import test from 'ava';
 import emojiRegex from 'emoji-regex/text';
 import {length} from 'stringz';
-import {types, typesOrder} from '../types';
 import aliases from '../aliases';
+import {types, typesOrder} from '../types';
 
 /* eslint valid-typeof: ["error", {requireStringLiterals: false}] */
 

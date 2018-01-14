@@ -1,6 +1,7 @@
-import {merge} from 'lodash';
-import conventionalChangelogAngular from 'conventional-changelog-angular';
+'use strict';
 
+const _ = require('lodash');
+const conventionalChangelogAngular = require('conventional-changelog-angular');
 const commitGroupsSort = require('./lib/commit-groups-compare');
 const transform = require('./lib/commit-transform');
 
@@ -8,5 +9,5 @@ const transform = require('./lib/commit-transform');
  * @type {Promise<Object>} preset with `parserOpts` and `writerOpts`.
  */
 module.exports = conventionalChangelogAngular.then(preset =>
-  merge(preset, {writerOpts: {transform, commitGroupsSort, groupBy: 'groupType'}})
+  _.merge(preset, {writerOpts: {transform, commitGroupsSort, groupBy: 'groupType'}})
 );

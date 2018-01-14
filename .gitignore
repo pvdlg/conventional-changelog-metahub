@@ -129,9 +129,3 @@ $RECYCLE.BIN/
 
 yarn.lock
 package-lock.json
-
-/preset.*
-/release-rules.*
-/lib
-/types.*
-/aliases.*

@@ -28,12 +28,9 @@ export default async function changelog(messages, types, config = {}) {
     conventionalChangelog(
       merge(
         {
-          config: proxyquire('../../preset', {
+          config: proxyquire('../..', {
             './lib/commit-transform': proxyquire('../../lib/commit-transform', {'../types': types}),
-            './lib/commit-groups-compare': proxyquire('../../lib/commit-groups-compare', {
-              '../types': types,
-              '../aliases': proxyquire('../../aliases', types),
-            }),
+            './lib/commit-groups-compare': proxyquire('../../lib/commit-groups-compare', {'../types': types}),
           }),
         },
         config
