@@ -3,18 +3,6 @@
   "description": "conventional-changelog preset",
   "version": "0.0.0-development",
   "author": "Pierre Vanduynslager",
-  "babel": {
-    "presets": [
-      [
-        "env",
-        {
-          "targets": {
-            "node": "4"
-          }
-        }
-      ]
-    ]
-  },
   "bugs": {
     "url": "https://github.com/pvdlg/conventional-changelog-metahub/issues"
   },
@@ -24,8 +12,6 @@
   },
   "devDependencies": {
     "ava": "^0.24.0",
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.0",
     "codecov": "^3.0.0",
     "conventional-changelog": "^1.1.4",
     "conventional-commits-parser": "^2.0.0",
@@ -39,7 +25,6 @@
     "p-each-series": "^1.0.0",
     "prettier": "~1.10.0",
     "proxyquire": "^1.8.0",
-    "rimraf": "^2.6.1",
     "semantic-release": "^12.0.0",
     "stringz": "^0.4.0",
     "tempy": "^0.2.0",
@@ -50,7 +35,7 @@
   },
   "files": [
     "lib/*.js",
-    "preset.js",
+    "index.js",
     "release-rules.js",
     "types.js",
     "aliases.js"
@@ -65,11 +50,11 @@
     "semantic-release"
   ],
   "license": "MIT",
-  "main": "preset.js",
+  "main": "index.js",
   "nyc": {
     "include": [
       "lib/*.js",
-      "preset.js",
+      "index.js",
       "release-rules.js",
       "types.js",
       "aliases.js"
@@ -92,11 +77,11 @@
   },
   "release": {
     "analyzeCommits": {
-      "config": "./preset.js",
+      "config": "./index.js",
       "releaseRules": "./release-rules.js"
     },
     "generateNotes": {
-      "config": "./preset.js"
+      "config": "./index.js"
     }
   },
   "repository": {
@@ -105,10 +90,8 @@
   },
   "scripts": {
     "codecov": "codecov -f coverage/coverage-final.json",
-    "compile": "rimraf preset.* release-rules.* types.* aliases.* lib && babel src --source-maps --out-dir .",
     "lint": "xo",
-    "prepublishOnly": "npm run compile",
-    "pretest": "npm run compile && npm run lint",
+    "pretest": "npm run lint",
     "semantic-release": "semantic-release",
     "test": "nyc ava -v"
   },
