@@ -16,14 +16,11 @@
     "conventional-changelog": "^1.1.4",
     "conventional-commits-parser": "^2.0.0",
     "emoji-regex": "^6.5.1",
-    "eslint-config-prettier": "^2.3.0",
-    "eslint-plugin-prettier": "^2.2.0",
     "execa": "^0.9.0",
     "fs-extra": "^5.0.0",
     "get-stream": "^3.0.0",
     "nyc": "^11.1.0",
     "p-each-series": "^1.0.0",
-    "prettier": "~1.10.0",
     "proxyquire": "^1.8.0",
     "semantic-release": "^12.0.0",
     "stringz": "^0.4.0",
@@ -67,10 +64,7 @@
     "all": true
   },
   "prettier": {
-    "printWidth": 120,
-    "singleQuote": true,
-    "bracketSpacing": false,
-    "trailingComma": "es5"
+    "printWidth": 120
   },
   "publishConfig": {
     "access": "public"
@@ -96,8 +90,6 @@
     "test": "nyc ava -v"
   },
   "xo": {
-    "extends": [
-      "plugin:prettier/recommended"
-    ]
+    "prettier": true
   }
 }
