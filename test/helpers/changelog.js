@@ -17,24 +17,24 @@ import {merge} from 'lodash';
  * @return {string} the changelog.
  */
 export default async function changelog(messages, types, config = {}) {
-  const dir = tempy.directory();
+	const dir = tempy.directory();
 
-  process.chdir(dir);
-  await fs.mkdir('git-templates');
-  await execa('git', ['init', '--template=./git-templates']);
+	process.chdir(dir);
+	await fs.mkdir('git-templates');
+	await execa('git', ['init', '--template=./git-templates']);
 
-  await pEachSeries(messages, message => execa('git', ['commit', '-m', message, '--allow-empty', '--no-gpg-sign']));
-  return getStream(
-    conventionalChangelog(
-      merge(
-        {
-          config: proxyquire('../..', {
-            './lib/commit-transform': proxyquire('../../lib/commit-transform', {'../types': types}),
-            './lib/commit-groups-compare': proxyquire('../../lib/commit-groups-compare', {'../types': types}),
-          }),
-        },
-        config
-      )
-    )
-  );
+	await pEachSeries(messages, message => execa('git', ['commit', '-m', message, '--allow-empty', '--no-gpg-sign']));
+	return getStream(
+		conventionalChangelog(
+			merge(
+				{
+					config: proxyquire('../..', {
+						'./lib/commit-transform': proxyquire('../../lib/commit-transform', {'../types': types}),
+						'./lib/commit-groups-compare': proxyquire('../../lib/commit-groups-compare', {'../types': types}),
+					}),
+				},
+				config
+			)
+		)
+	);
 }

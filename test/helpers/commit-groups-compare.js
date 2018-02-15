@@ -8,5 +8,5 @@ import proxyquire from 'proxyquire';
  * @return {Object} the commit groups compare function.
  */
 export default function commitGroupsCompare(types) {
-  return proxyquire('../../lib/commit-groups-compare', {'../types': types});
+	return proxyquire('../../lib/commit-groups-compare', {'../types': types});
 }
