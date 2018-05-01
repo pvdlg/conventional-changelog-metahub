@@ -17,7 +17,7 @@
     "conventional-commits-parser": "^2.0.0",
     "emoji-regex": "^6.5.1",
     "execa": "^0.10.0",
-    "fs-extra": "^5.0.0",
+    "fs-extra": "^6.0.0",
     "get-stream": "^3.0.0",
     "nyc": "^11.1.0",
     "p-each-series": "^1.0.0",
