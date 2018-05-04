@@ -16,8 +16,8 @@ import {types, typesOrder} from '../types';
  */
 function hasProperty(t, object, prop, type) {
 	for (const obj in object) {
-		if (Object.prototype.hasOwnProperty.call(object, obj)) {
-			t.true(Object.prototype.hasOwnProperty.call(object[obj], prop));
+		if (Reflect.apply(Object.prototype.hasOwnProperty, object, [obj])) {
+			t.true(Reflect.apply(Object.prototype.hasOwnProperty, object[obj], [prop]));
 			if (type === 'boolean' || type === 'string' || type === 'number' || type === 'function') {
 				t.true(typeof object[obj][prop] === type);
 			} else if (type === 'emoji') {
@@ -37,11 +37,11 @@ function hasProperty(t, object, prop, type) {
  */
 function hasValidRelease(t, object) {
 	for (const obj in object) {
-		if (Object.prototype.hasOwnProperty.call(object, obj)) {
-			t.true(Object.prototype.hasOwnProperty.call(object[obj], 'release'));
+		if (Reflect.apply(Object.prototype.hasOwnProperty, object, [obj])) {
+			t.true(Reflect.apply(Object.prototype.hasOwnProperty, object[obj], ['release']));
 			t.true(
 				['major', 'minor', 'patch', false].indexOf(object[obj].release) !== -1 ||
-					(Object.prototype.hasOwnProperty.call(object[obj].release, 'release') &&
+					(Reflect.apply(Object.prototype.hasOwnProperty, object[obj].release, ['release']) &&
 						['major', 'minor', 'patch', false].indexOf(object[obj].release.release) !== -1)
 			);
 		}
@@ -64,7 +64,7 @@ test('../types has the property typesOrder', t => {
 
 test('Each type exists in typesOrder', t => {
 	for (const type in types) {
-		if (Object.prototype.hasOwnProperty.call(types, type)) {
+		if (Reflect.apply(Object.prototype.hasOwnProperty, types, [type])) {
 			t.true(typesOrder.indexOf(type) !== -1);
 		}
 	}

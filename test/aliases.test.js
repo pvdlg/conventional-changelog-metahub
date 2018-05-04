@@ -17,8 +17,8 @@ import {types, typesOrder} from '../types';
  */
 function hasProperty(t, object, prop, type) {
 	for (const obj in object) {
-		if (Object.prototype.hasOwnProperty.call(object, obj)) {
-			t.true(Object.prototype.hasOwnProperty.call(object[obj], prop));
+		if (Reflect.apply(Object.prototype.hasOwnProperty, object, [obj])) {
+			t.true(Reflect.apply(Object.prototype.hasOwnProperty, object[obj], [prop]));
 			if (type === 'string') {
 				t.true(typeof object[obj][prop] === type);
 			} else if (type === 'emoji') {
@@ -35,15 +35,15 @@ test('Each type has the property emoji', hasProperty, aliases, 'emoji', 'emoji')
 
 test('Each alias`s type property has a value that exists in types', t => {
 	for (const alias in aliases) {
-		if (Object.prototype.hasOwnProperty.call(aliases, alias)) {
-			t.true(Object.prototype.hasOwnProperty.call(types, aliases[alias].type));
+		if (Reflect.apply(Object.prototype.hasOwnProperty, aliases, [alias])) {
+			t.true(Reflect.apply(Object.prototype.hasOwnProperty, types, [aliases[alias].type]));
 		}
 	}
 });
 
 test('Each alias exists in typesOrder', t => {
 	for (const type in types) {
-		if (Object.prototype.hasOwnProperty.call(types, type)) {
+		if (Reflect.apply(Object.prototype.hasOwnProperty, types, [type])) {
 			t.true(typesOrder.indexOf(type) !== -1);
 		}
 	}
