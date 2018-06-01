@@ -13,7 +13,7 @@
   "devDependencies": {
     "ava": "^0.25.0",
     "codecov": "^3.0.0",
-    "conventional-changelog": "^1.1.4",
+    "conventional-changelog": "^2.0.0",
     "conventional-commits-parser": "^2.0.0",
     "emoji-regex": "^6.5.1",
     "execa": "^0.10.0",
