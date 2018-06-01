@@ -7,7 +7,7 @@
     "url": "https://github.com/pvdlg/conventional-changelog-metahub/issues"
   },
   "dependencies": {
-    "conventional-changelog-angular": "^3.0.0",
+    "conventional-changelog-angular": "^4.0.0",
     "lodash": "^4.17.4"
   },
   "devDependencies": {
