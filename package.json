@@ -16,7 +16,7 @@
     "conventional-changelog": "^2.0.0",
     "conventional-commits-parser": "^3.0.0",
     "emoji-regex": "^7.0.0",
-    "execa": "^0.11.0",
+    "execa": "^1.0.0",
     "fs-extra": "^7.0.0",
     "get-stream": "^4.0.0",
     "nyc": "^12.0.1",
