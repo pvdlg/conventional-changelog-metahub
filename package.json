@@ -19,7 +19,7 @@
     "execa": "^1.0.0",
     "fs-extra": "^7.0.0",
     "get-stream": "^4.0.0",
-    "nyc": "^12.0.1",
+    "nyc": "^13.1.0",
     "p-each-series": "^1.0.0",
     "proxyquire": "^2.0.0",
     "semantic-release": "^15.0.0",
