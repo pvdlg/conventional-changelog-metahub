@@ -16,7 +16,7 @@ module.exports = [{breaking: true, release: 'major'}].concat(
 				}
 
 				if (value.release.release) {
-					releaseRules.push(Object.assign({type}, value.release));
+					releaseRules.push({type, ...value.release});
 				}
 			}
 		},
