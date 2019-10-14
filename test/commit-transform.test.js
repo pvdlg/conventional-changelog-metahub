@@ -15,7 +15,7 @@ test('Return transformed commit and truncate hash', t => {
 
 	t.is(commit.type, 'feat');
 	t.is(commit.groupType, 'Feature title');
-	t.is(commit.hash.length, COMMIT_HASH_LENGTH);
+	t.is(commit.shortHash.length, COMMIT_HASH_LENGTH);
 	t.true('1234567890'.startsWith(commit.hash));
 });
 
