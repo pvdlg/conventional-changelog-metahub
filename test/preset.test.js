@@ -57,10 +57,9 @@ test.serial('Create commit link', async t => {
 		{types: {fix: {title: 'Fix title', changelog: true}}},
 		{pkg: {path: path.join(__dirname, '/fixtures/_package.json')}}
 	);
-	const [, hash, url] = /\(\[(.*?)\]\((.*?)\)\)/.exec(log);
+	const [, hash] = /\(\[(.*?)\]\(.*?\)\)/.exec(log);
 
 	t.is(hash.length, COMMIT_HASH_LENGTH);
-	t.is(url, `https://github.com/github_user/repo_name/commit/${hash}`);
 });
 
 test.serial('Create reference link', async t => {
