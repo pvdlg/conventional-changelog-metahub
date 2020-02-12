@@ -40,9 +40,9 @@ function hasValidRelease(t, object) {
 		if (Reflect.apply(Object.prototype.hasOwnProperty, object, [obj])) {
 			t.true(Reflect.apply(Object.prototype.hasOwnProperty, object[obj], ['release']));
 			t.true(
-				['major', 'minor', 'patch', false].indexOf(object[obj].release) !== -1 ||
+				['major', 'minor', 'patch', false].includes(object[obj].release) ||
 					(Reflect.apply(Object.prototype.hasOwnProperty, object[obj].release, ['release']) &&
-						['major', 'minor', 'patch', false].indexOf(object[obj].release.release) !== -1)
+						['major', 'minor', 'patch', false].includes(object[obj].release.release))
 			);
 		}
 	}
@@ -65,7 +65,7 @@ test('../types has the property typesOrder', t => {
 test('Each type exists in typesOrder', t => {
 	for (const type in types) {
 		if (Reflect.apply(Object.prototype.hasOwnProperty, types, [type])) {
-			t.true(typesOrder.indexOf(type) !== -1);
+			t.true(typesOrder.includes(type));
 		}
 	}
 });
