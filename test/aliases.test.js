@@ -44,7 +44,7 @@ test('Each alias`s type property has a value that exists in types', t => {
 test('Each alias exists in typesOrder', t => {
 	for (const type in types) {
 		if (Reflect.apply(Object.prototype.hasOwnProperty, types, [type])) {
-			t.true(typesOrder.indexOf(type) !== -1);
+			t.true(typesOrder.includes(type));
 		}
 	}
 });
