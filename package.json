@@ -31,7 +31,7 @@
     "p-each-series": "^2.1.0",
     "proxyquire": "^2.0.0",
     "semantic-release": "^17.0.0",
-    "stringz": "^2.0.0",
+    "stringz": "^2.1.0",
     "tempy": "^0.4.0",
     "xo": "^0.26.1"
   },
