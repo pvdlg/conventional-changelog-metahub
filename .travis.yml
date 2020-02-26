@@ -4,6 +4,9 @@ node_js:
   - 12
   - 10.13
 
+cache:
+  npm: false
+
 branches:
   only:
     - master
