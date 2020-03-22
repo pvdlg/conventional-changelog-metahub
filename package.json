@@ -19,7 +19,7 @@
     "lodash": "^4.17.4"
   },
   "devDependencies": {
-    "ava": "^2.4.0",
+    "ava": "^3.5.1",
     "codecov": "^3.0.0",
     "conventional-changelog": "^3.0.1",
     "conventional-commits-parser": "^3.0.0",
