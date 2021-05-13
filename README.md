@@ -1,7 +1,7 @@
 # **conventional-changelog-metahub**
 
-[conventional-changelog](https://github.com/conventional-changelog/conventional-changelog) preset built from a list of [conventional commit types](src/types.js) (similar to [conventional-commit-types](https://github.com/commitizen/conventional-commit-types)).
-Also provides [release rules](https://github.com/pvdlg/sr-commit-analyzer#release-rules) configuration for [sr-commit-analyzer](https://github.com/pvdlg/sr-commit-analyzer).
+[conventional-changelog](https://github.com/conventional-changelog/conventional-changelog) preset built from a list of [conventional commit types](types.js) (similar to [conventional-commit-types](https://github.com/commitizen/conventional-commit-types)).
+Also provides [release rules](https://github.com/semantic-release/commit-analyzer#releaserules) configuration for [commit-analyzer](https://github.com/semantic-release/commit-analyzer).
 
 [![Travis](https://img.shields.io/travis/pvdlg/conventional-changelog-metahub.svg)](https://travis-ci.org/pvdlg/conventional-changelog-metahub)
 [![Codecov](https://img.shields.io/codecov/c/github/pvdlg/conventional-changelog-metahub.svg)](https://codecov.io/gh/pvdlg/conventional-changelog-metahub)
